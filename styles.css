@@ -1,0 +1,48 @@
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    height: 400px;
+    width: 500px;
+    background-color: 
+    rgb(108, 102, 102);
+    display: flex;
+    flex-direction: column;
+    border: red 2px solid;
+    padding: 10px;
+    
+}
+
+.row {
+    border: blue 2px solid;
+    display: flex;
+    justify-content: space-evenly;
+    gap:5px;
+    height: 50px;
+    padding: 2px;
+}
+
+.display {
+    border: yellow 2px solid;
+    flex-basis: 50px;
+    margin-bottom: 20px;
+    
+}
+
+.keypad {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.row .num, .row .operator  {
+    flex-grow: 1;
+}
+
+
+
