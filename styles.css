@@ -8,9 +8,8 @@ body {
 
 .container {
     height: 400px;
-    width: 500px;
-    background-color: 
-    rgb(108, 102, 102);
+    width: 300px;
+    background-color: #4f70b3;
     display: flex;
     flex-direction: column;
     border: red 2px solid;
@@ -29,8 +28,10 @@ body {
 
 .display {
     border: yellow 2px solid;
+    background-color: black;
     flex-basis: 50px;
     margin-bottom: 20px;
+    color: white;
     
 }
 
@@ -42,6 +43,14 @@ body {
 
 .row .num, .row .operator  {
     flex-grow: 1;
+}
+
+.num {
+    background-color: orange;
+}
+
+.operator {
+    background-color: #32a1b5;
 }
 
 

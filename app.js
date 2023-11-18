@@ -1,6 +1,13 @@
-let operand1;
-let operand2;
-let operator;
+let operand1 = "";
+let operand2 = "";
+let operator = "";
+
+const numButtons = document.querySelectorAll('num');
+const operatorButtons = document.querySelectorAll('operator');
+const display = document.querySelector('display');
+const equals = document.querySelector('equals');
+const clear = document.querySelector('clear');
+
 
 function add(num1, num2) {
     return num1 + num2;
@@ -33,3 +40,4 @@ function operate(num1, num2, operator) {
         return null;
     }
 }
+
