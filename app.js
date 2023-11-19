@@ -22,12 +22,21 @@ for (let i = 0; i < operatorButtons.length; i++) {
 equals.addEventListener('click', equalFunc);
 
 function processOperator(e) {
+    if (!operand1) {
+        return;     
+    }
+
+    if (operator && (operand1 && operand2)) {
+        operand1 = operate(operand1, operand2, operator);
+        operand2 = '';
+        displayScreen(operand1);
+    }
+
     operator = e.target.innerText;
     console.log("operator:" + operator);
-    
-    if (!operand1) {
-        return;
-    } else if (operand1 && operand2) {
+
+      
+    if (operand1 && operand2) {
         operand1 = operate(operand1, operand2, operator);
         operand2 = '';
         console.log("op1:" + operand1);
