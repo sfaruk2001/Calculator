@@ -21,6 +21,8 @@ for (let i = 0; i < operatorButtons.length; i++) {
 //add event listener for equals key
 equals.addEventListener('click', equalFunc);
 
+clear.addEventListener('click', clearFunc);
+
 function processOperator(e) {
     if (!operand1) {
         return;     
@@ -72,8 +74,12 @@ function equalFunc() {
     displayScreen(operand1);
 }
 
-
-
+function clearFunc() {
+    operand1 = '';
+    operand2 = '';
+    operator = '';
+    resetDisplay();
+}
 
 
 function displayScreen(num) {
