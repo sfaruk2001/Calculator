@@ -67,11 +67,14 @@ function processNum(e) {
 }
 
 function equalFunc() {
-    operand1 = operate(operand1, operand2, operator);
-    operand2 = '';
-    operator = '';
-    console.log("eq func op1: " + operand1);
-    displayScreen(operand1);
+    if (operand1 && operand2 && operator) {
+        operand1 = operate(operand1, operand2, operator);
+        operand2 = '';
+        operator = '';
+        console.log("eq func op1: " + operand1);
+        displayScreen(operand1);
+    }
+   
 }
 
 function clearFunc() {
