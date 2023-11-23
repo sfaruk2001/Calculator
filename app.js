@@ -7,6 +7,8 @@ const operatorButtons = document.querySelectorAll('button.operator');
 const display = document.querySelector('.displayContent');
 const equals = document.querySelector('.equals');
 const clear = document.querySelector('.clear');
+const signButton = document.querySelector('.negPos');
+const decimalButton = document.querySelector('.decimal');
 
 //add event listeners for number keys
 for (let i = 0; i < numButtons.length; i++) {
@@ -22,6 +24,10 @@ for (let i = 0; i < operatorButtons.length; i++) {
 equals.addEventListener('click', equalFunc);
 
 clear.addEventListener('click', clearFunc);
+
+signButton.addEventListener('click', signFunc);
+
+decimalButton.addEventListener('click', decimalFunc);
 
 function processOperator(e) {
     if (!operand1) {
@@ -48,7 +54,15 @@ function processOperator(e) {
 
 
 function processNum(e) {
+    
     const number = e.target.innerText;
+
+    if (operator === '/' && number === '0') {
+        alert("You Donkey you can't divide by zero!");
+        clearFunc();
+        return;
+    }
+
     if (!operand1) {
         operand1 += number;
         console.log("op1:" + operand1);
@@ -66,9 +80,53 @@ function processNum(e) {
     }
 }
 
+function signFunc() {
+    if (!operand1) {
+        return;
+    }
+    
+
+    if (operand1 && !operator) {
+        if (Number(operand1) !== 0 && operand1.charAt(0) !== '-' ) {
+            operand1 = '-' + operand1;
+            displayScreen(operand1);
+        } else if (Number(operand1) !== 0 && operand1.charAt(0) === '-' ) {
+            operand1 = operand1.substring(1);
+            displayScreen(operand1);
+        }
+    } else  {
+        if (Number(operand2) !== 0 && operand2.charAt(0) !== '-' ) {
+            operand2 = '-' + operand2;
+            displayScreen(operand2);
+        } else if (Number(operand2) !== 0 && operand2.charAt(0) === '-' ) {
+            operand2 = operand2.substring(1);
+            displayScreen(operand2);
+        }
+    }
+}
+
+function decimalFunc(e) {
+    let dec = e.target.innerText;
+    if (!operand1) {
+        operand1 += dec;
+        console.log("op1:" + operand1);
+        displayScreen(operand1);
+    } else if (operand1 && !operand1.includes('.') && !operator ) {
+        operand1 += dec;
+        console.log("op1:" + operand1);
+        displayScreen(operand1);
+    } else if (!operand2.includes('.') && operand1 && operator)  {
+        resetDisplay();
+        operand2 += dec;
+        console.log("op2:" + operand2);
+        displayScreen(operand2);
+        
+    }
+}
+
 function equalFunc() {
     if (operand1 && operand2 && operator) {
-        operand1 = operate(operand1, operand2, operator);
+        operand1 = '' + operate(operand1, operand2, operator);
         operand2 = '';
         operator = '';
         console.log("eq func op1: " + operand1);
