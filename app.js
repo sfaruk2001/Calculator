@@ -185,19 +185,19 @@ function resetDisplay() {
 }
 
 function add(num1, num2) {
-    return num1 + num2;
+    return Number((num1 + num2).toFixed(3));
 }
 
 function subtract(num1, num2) {
-    return num1 - num2;
+    return Number((num1 - num2).toFixed(3));
 }
 
 function multiply(num1, num2) {
-    return num1 * num2;
+    return Number((num1 * num2).toFixed(3));
 }
 
 function divide(num1, num2) {
-    return num1 / num2;
+    return Number((num1 / num2).toFixed(3));
 }
 
 function operate(num1, num2, operator) {
